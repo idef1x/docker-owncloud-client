@@ -4,6 +4,12 @@ Image should install the latest client (currently 1.8.0)
 
 ```
 Usage: docker run -d -v <hostdirtosync:dockerdirtosync> <environment vars> idef1x/docker-owncloud-client 
+
+Example: docker run -d -v ~/mydocs:/mydocs -e USER="example" -e PASSWORD="examplepassword" \
+           -e LOCALDIR="/mydocs" \ 
+           -e URL="https://<owncloudserver_name>/owncloud/remote.php/webdav/mydocs" \  
+           -e INTERVAL="30" -e HOSTUSER="myuserid" \ 
+           --name <container name> idef1x/docker-owncloud-client
 ```
 
 # Environment vars to use:

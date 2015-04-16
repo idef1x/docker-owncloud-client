@@ -24,5 +24,7 @@ RUN chmod +x /startup.sh
 
 # Cleanup
 RUN apt-get clean
+#RUN rm -rf /usr/share/doc /usr/share/man /usr/share/locale
+
 
 ENTRYPOINT [ "/startup.sh" ]
