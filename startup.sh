@@ -13,9 +13,20 @@ chown $HOSTUSER.$HOSTUSER /home/$HOSTUSER/.netrc
 
 chown -R $HOSTUSER.$HOSTUSER $LOCALDIR
 
+LOGFILE="/home/$HOSTUSER/oc.log"
+
 
 while true
 do
-    su $HOSTUSER -c "testpilotcloudcmd --trust -n $LOCALDIR $URL"
+    # Start sync
+    su $HOSTUSER -c "testpilotcloudcmd --trust -n $LOCALDIR $URL >>$LOGFILE 2>&1"
+    
+    # do a kind of logrotate when logfile > 20000000 (~20MB)
+    LOGSIZE=`stat $LOGFILE |grep Size|awk '{ print $2}'`
+    # If logsize > ~20MB, then zip it
+    if [ $LOGSIZE -ge 20000000 ] 
+      then 
+        gzip -f $LOGFILE 
+    fi
     sleep $INTERVAL
 done

@@ -34,5 +34,6 @@ docker run -d \
 * naming the container (--name) is just for conveniance
 * client will trust any https certificate, so you can use it with self-signed certificates as well
   so check the certificate of the server URL before yourself!
-* Even when using a .netrc file for authenticating you can still see the credentials in the logs :(
-  Probably has to do that the owncloud commandline is for testing only. 
+* logging is done to a file inside the container because it did show credentials via the docker logs.
+  Inside the container in the log these are still shown, but can only be hidden by logging to /dev/null
+  instead as far as I know :(
