@@ -1,9 +1,8 @@
 # Docker-Owncloud-client
 #
-# VERSION               0.3
+# VERSION               0.5
 
 FROM     ubuntu:vivid
-#FROM     debian:latest
 MAINTAINER idef1x <docker@sjomar.eu>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -11,8 +10,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y \
         wget
 
-RUN echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud-client.list 
-RUN wget http://download.opensuse.org/repositories/isv:ownCloud:desktop/Debian_7.0/Release.key
+RUN echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_15.04/ /' >> /etc/apt/sources.list.d/owncloud-client.list
+RUN wget http://download.opensuse.org/repositories/isv:ownCloud:desktop/xUbuntu_15.04/Release.key
 RUN apt-key add - < Release.key
 RUN rm Release.key
 
