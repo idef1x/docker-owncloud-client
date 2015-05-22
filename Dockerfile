@@ -2,7 +2,8 @@
 #
 # VERSION               0.3
 
-FROM     debian:latest
+FROM     ubuntu:vivid
+#FROM     debian:latest
 MAINTAINER idef1x <docker@sjomar.eu>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -16,7 +17,7 @@ RUN apt-key add - < Release.key
 RUN rm Release.key
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
-        testpilotcloud-client
+	owncloud-client
 ADD startup.sh /startup.sh
 RUN chmod +x /startup.sh
 
