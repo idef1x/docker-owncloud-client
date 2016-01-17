@@ -1,7 +1,7 @@
 # docker-owncloud-client
 Owncloud headless client so I can run multiple owncloud-clients on one machine to dfferent owncloud servers :)
 
-Image should install the latest client (currently 2.0.1)
+Image should install the latest client (currently 2.1.0)
 
 ```
 *Usage: 
