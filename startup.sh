@@ -13,13 +13,13 @@ chown $HOSTUSER.$HOSTUSER /home/$HOSTUSER/.netrc
 
 chown -R $HOSTUSER.$HOSTUSER $LOCALDIR
 
-LOGFILE="/home/$HOSTUSER/oc.log"
+LOGFILE="/home/$HOSTUSER/nextcloud.log"
 
 
 while true
 do
     # Start sync
-    su $HOSTUSER -c "nextcloudcmd --trust -n $LOCALDIR $URL >>$LOGFILE 2>&1"
+    su $HOSTUSER -c "nextcloudcmd -n $LOCALDIR $URL >>$LOGFILE 2>&1"
     
     # do a kind of logrotate when logfile > 20000000 (~20MB)
     LOGSIZE=`stat $LOGFILE |grep Size|awk '{ print $2}'`

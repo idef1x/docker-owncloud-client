@@ -1,6 +1,6 @@
 # Docker-Owncloud-client
 #
-# VERSION               0.5
+# VERSION               0.9
 
 FROM     alpine
 MAINTAINER idef1x <docker@sjomar.eu>
