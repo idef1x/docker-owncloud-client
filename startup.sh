@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #add hostuser so files will be written as this user instead of root
-useradd -d /home/$HOSTUSER -m $HOSTUSER
+	adduser -h /home/$HOSTUSER -D $HOSTUSER
 
 SERVER=`echo $URL|sed "s/\// /g"|awk '{ print $2 }'`
 
@@ -19,7 +19,7 @@ LOGFILE="/home/$HOSTUSER/oc.log"
 while true
 do
     # Start sync
-    su $HOSTUSER -c "owncloudcmd --trust -n $LOCALDIR $URL >>$LOGFILE 2>&1"
+    su $HOSTUSER -c "nextcloudcmd --trust -n $LOCALDIR $URL >>$LOGFILE 2>&1"
     
     # do a kind of logrotate when logfile > 20000000 (~20MB)
     LOGSIZE=`stat $LOGFILE |grep Size|awk '{ print $2}'`

@@ -1,7 +1,7 @@
 # docker-owncloud-client
-Owncloud headless client so I can run multiple owncloud-clients on one machine to dfferent owncloud servers :)
+Nextcloud headless client on Alpine so I can run multiple nextcloud clients on one machine to dfferent nextcloud servers :)
 
-Image should install the latest client (currently 2.1.0)
+Image should install the latest client 
 
 ```
 *Usage: 
@@ -14,7 +14,7 @@ docker run -d \
    -e LOCALDIR="/mydocs" \ 
    -e USER="example" \
    -e PASSWORD="examplepassword" \
-   -e URL="https://<owncloudserver_name>/owncloud/remote.php/webdav/mydocs" \  
+   -e URL="https://<nextcloudserver_name>/nextcloud/remote.php/webdav/mydocs" \  
    -e INTERVAL="30" \
    -e HOSTUSER="myuserid" \ 
    --name <container name> \
@@ -22,8 +22,8 @@ docker run -d \
 ```
 
 # Environment vars to use:
-* USER => owncloud user
-* PASSWORD => owncloud user password
+* USER => nextcloud user
+* PASSWORD => nextcloud user password
 * LOCALDIR => local (to docker client) directory to sync (create one with -v <hostdir>:<dockerdir> )
 * URL      => owncloud server URL with remote directory to sync
 * INTERVAL => interval to check for changes 
